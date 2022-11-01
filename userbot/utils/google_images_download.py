@@ -989,8 +989,8 @@ class googleimagesdownload:
         with codecs.open(file_name, "r", encoding="utf-8-sig") as f:
             if ".csv" in file_name or ".txt" in file_name:
                 search_keyword.extend(line.replace(
-                                "\n", "").replace(
-                                "\r", "") for line in f if line not in ["\n", "\r\n"])
+                    "\n", "").replace(
+                    "\r", "") for line in f if line not in ["\n", "\r\n"])
             else:
                 print(
                     "Invalid file type: Valid file types are either .txt or .csv \n"
