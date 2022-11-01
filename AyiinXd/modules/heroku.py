@@ -42,7 +42,7 @@ async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
         await eor(var, get_string("heroku_1")
-        )
+                  )
         return False
     if exe == "get":
         xx = await eor(var, get_string("com_8"))
@@ -122,7 +122,7 @@ async def set_var(var):
 async def dyno_usage(dyno):
     if app is None:
         return await dyno.edit(get_string("heroku_12")
-        )
+                               )
     xx = await eor(dyno, "🤖")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
@@ -174,7 +174,7 @@ async def dyno_usage(dyno):
 
         sleep(3)
         await xx.edit(get_string("usage_2").format(app.name, AppHours, AppMinutes, AppPercentage, hours, minutes, percentage, day)
-        )
+                      )
         return True
 
 
@@ -182,7 +182,7 @@ async def dyno_usage(dyno):
 async def fake_dyno(event):
     xx = await eor(event, get_string("com_1"))
     await xx.edit(get_string("usange_1").format(app.name)
-    )
+                  )
 
 
 @ayiin_cmd(pattern="logs")
@@ -202,14 +202,14 @@ async def getsql(event):
     xxnx = await eor(event, get_string("getdb_1").format(var_))
     if var_ == "":
         return await xxnx.edit(get_string("getdb_2").format(cmd)
-        )
+                               )
     try:
         sql_v = gvarstatus(var_)
         os_v = os.environ.get(var_) or "None"
     except Exception as e:
         return await xxnx.edit(get_string("error_1").format(e))
     await xxnx.edit(get_string("getdb_3").format(var_, os_v, var_, sql_v)
-    )
+                    )
 
 
 @ayiin_cmd(pattern="setdb ?(.*)", allow_sudo=False)
@@ -221,7 +221,7 @@ async def setsql(event):
     xxnx = await eor(event, get_string("setdb_1").format(var_, valu))
     if "" in (var_, valu):
         return await xxnx.edit(get_string("setdb_2").format(cmd)
-        )
+                               )
     try:
         addgvar(var_, valu)
     except Exception as e:
@@ -235,7 +235,7 @@ async def delsql(event):
     xxnx = await eor(event, get_string("deldb_1").format(var_))
     if var_ == "":
         return await xxnx.edit(get_string("deldb_2").format(cmd)
-        )
+                               )
     try:
         delgvar(var_)
     except Exception as e:

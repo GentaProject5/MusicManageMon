@@ -18,12 +18,11 @@ from platform import python_version
 from shutil import which
 
 import psutil
-from pytgcalls import __version__ as pytgcalls
 from telethon import __version__, version
 
-from AyiinXd import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER, CHANNEL
+from AyiinXd import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER
 from AyiinXd import CMD_HANDLER as cmd
-from AyiinXd import CMD_HELP, GROUP, StartTime
+from AyiinXd import CMD_HELP, StartTime
 from AyiinXd.ayiin import __version__ as py_ver
 from AyiinXd.ayiin import (
     AyiinDB,
@@ -181,7 +180,7 @@ async def bot_ver(event):
 
 @ayiin_cmd(pattern="(?:alive|yinson)\\s?(.)?")
 async def amireallyalive(alive):
-    adB = AyiinDB()
+    AyiinDB()
     user = await alive.client.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
     await alive.edit("😈")

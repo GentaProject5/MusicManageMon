@@ -134,10 +134,10 @@ async def autobot():
             )
             sys.exit(1)
     filogo = random.choice(
-          [
-              "https://telegra.ph/file/d4c5d9b06e066ae3ab9e7.jpg",
-              "AyiinXd/resources/logo.jpg",
-          ]
+        [
+            "https://telegra.ph/file/d4c5d9b06e066ae3ab9e7.jpg",
+            "AyiinXd/resources/logo.jpg",
+        ]
     )
     await bot.send_message(bf, username)
     await asyncio.sleep(1)

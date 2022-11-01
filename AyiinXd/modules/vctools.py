@@ -53,7 +53,7 @@ async def start_voice(c):
     try:
         await c.client(startvc(c.chat_id))
         await xd.edit(get_string("stvc_2"))
-    except Exception as ex:
+    except Exception:
         await eod(xd, get_string("erro_1").format(e))
 
 
@@ -124,7 +124,7 @@ async def _(a):
     yins = await a.client.get_me()
     if sender.id != yins.id:
         Ayiin = await a.reply(get_string("com_1"))
-    else: 
+    else:
         Ayiin = await eor(a, get_string("com_1"))
     if len(a.text.split()) > 1:
         chat_id = a.text.split()[1]
@@ -147,11 +147,11 @@ async def _(a):
                 stream_type=StreamType().pulse_stream,
             )
             await Ayiin.edit(get_string("jovc_1").format(yins.first_name, yins.id, chat_id)
-            )
+                             )
         except AlreadyJoinedError:
             await call_py.leave_group_call(chat_id)
             await eod(Ayiin, get_string("jovc_2").format(cmd)
-            )
+                      )
         except Exception as e:
             await Ayiin.edit(get_string("error_1").format(e))
 
@@ -163,7 +163,7 @@ async def vc_end(y):
     yins = await y.client.get_me()
     if sender.id != yins.id:
         Ayiin = await y.reply(get_string("com_1"))
-    else: 
+    else:
         Ayiin = await eor(y, get_string("com_1"))
     if len(y.text.split()) > 1:
         chat_id = y.text.split()[1]
@@ -177,7 +177,7 @@ async def vc_end(y):
         try:
             await call_py.leave_group_call(chat_id)
             await eod(Ayiin, get_string("levc_1").format(yins.first_name, yins.id, chat_id)
-            )
+                      )
         except Exception as e:
             await Ayiin.edit(get_string("error_1").format(e))
 

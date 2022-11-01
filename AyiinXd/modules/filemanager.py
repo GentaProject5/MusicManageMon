@@ -31,7 +31,7 @@ async def lst(event):
     path = cat or os.getcwd()
     if not exists(path):
         await event.edit(get_string("file_1").format(cat)
-        )
+                         )
         return
     if isdir(path):
         if cat:
@@ -185,7 +185,7 @@ async def zip_file(event):
                         zip_obj.write(files_path, arc_path)
             end_time = (datetime.now() - start_time).seconds
             await event.edit(get_string("zip_1").format(path, zip_path, end_time)
-            )
+                             )
         elif isfile(path):
             file_name = basename(path)
             zip_path = join(TEMP_DOWNLOAD_DIRECTORY, file_name) + ".zip"
@@ -221,7 +221,7 @@ async def unzip_file(event):
             zip_type = TarFile
         else:
             return await event.edit(get_string("uzip_1")
-            )
+                                    )
         try:
             with zip_type(input_str, "r") as zip_obj:
                 zip_obj.extractall(output_path)
@@ -233,7 +233,7 @@ async def unzip_file(event):
             return await event.edit(get_string("error_1").format(err))
         end_time = (datetime.now() - start_time).seconds
         await event.edit(get_string("uzip_2").format(input_str, output_path, end_time)
-        )
+                         )
     else:
         await event.edit(get_string("failed8"))
 

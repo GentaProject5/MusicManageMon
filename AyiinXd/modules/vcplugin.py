@@ -136,7 +136,7 @@ async def vc_play(event):
         search = ytsearch(query)
         if search == 0:
             await botyins.edit(get_string("play_2")
-            )
+                               )
         else:
             songname = search[0]
             title = search[0]
@@ -152,7 +152,8 @@ async def vc_play(event):
                 await botyins.edit(f"`{ytlink}`")
             elif chat_id in QUEUE:
                 pos = add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                caption = get_string("play_3").format(pos, songname, url, duration, from_user)
+                caption = get_string("play_3").format(
+                    pos, songname, url, duration, from_user)
                 await botyins.delete()
                 await event.client.send_file(
                     chat_id, thumb, caption=caption, reply_to=event.reply_to_msg_id
@@ -168,7 +169,8 @@ async def vc_play(event):
                         stream_type=StreamType().pulse_stream,
                     )
                     add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
-                    caption = get_string("play_4").format(songname, url, duration, from_user)
+                    caption = get_string("play_4").format(
+                        songname, url, duration, from_user)
                     await botyins.delete()
                     await event.client.send_file(
                         chat_id, thumb, caption=caption, reply_to=event.reply_to_msg_id
@@ -187,7 +189,8 @@ async def vc_play(event):
             songname = "Voice Note"
         if chat_id in QUEUE:
             pos = add_to_queue(chat_id, songname, dl, link, "Audio", 0)
-            caption = get_string("play_5").format(pos, songname, link, chat_id, from_user)
+            caption = get_string("play_5").format(
+                pos, songname, link, chat_id, from_user)
             await event.client.send_file(
                 chat_id, ngantri, caption=caption, reply_to=event.reply_to_msg_id
             )
@@ -203,7 +206,8 @@ async def vc_play(event):
                     stream_type=StreamType().pulse_stream,
                 )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
-                caption = get_string("play_6").format(songname, link, chat_id, from_user)
+                caption = get_string("play_6").format(
+                    songname, link, chat_id, from_user)
                 await event.client.send_file(
                     chat_id, fotoplay, caption=caption, reply_to=event.reply_to_msg_id
                 )
@@ -238,7 +242,7 @@ async def vc_vplay(event):
         hmmm = HighQualityVideo()
         if search == 0:
             await xnxx.edit(get_string("vplay_2")
-            )
+                            )
         else:
             songname = search[0]
             title = search[0]
@@ -254,7 +258,8 @@ async def vc_vplay(event):
             elif chat_id in QUEUE:
                 pos = add_to_queue(
                     chat_id, songname, ytlink, url, "Video", RESOLUSI)
-                caption = get_string("vplay_3").format(pos, songname, url, duration, from_user)
+                caption = get_string("vplay_3").format(
+                    pos, songname, url, duration, from_user)
                 await xnxx.delete()
                 await event.client.send_file(
                     chat_id, thumb, caption=caption, reply_to=event.reply_to_msg_id
@@ -278,8 +283,8 @@ async def vc_vplay(event):
                         "Video",
                         RESOLUSI)
                     await xnxx.edit(get_string("vplay_4").format(songname, url, duration, from_user),
-                        link_preview=False,
-                    )
+                                    link_preview=False,
+                                    )
                 except Exception as ep:
                     clear_queue(chat_id)
                     await xnxx.edit(get_string("error_1").format(ep))
@@ -297,7 +302,8 @@ async def vc_vplay(event):
             songname = "Telegram Video Player"
         if chat_id in QUEUE:
             pos = add_to_queue(chat_id, songname, dl, link, "Video", RESOLUSI)
-            caption = get_string("vplay_5").format(pos, songname, link, chat_id, from_user)
+            caption = get_string("vplay_5").format(
+                pos, songname, link, chat_id, from_user)
             await event.client.send_file(
                 chat_id, ngantri, caption=caption, reply_to=event.reply_to_msg_id
             )
@@ -320,7 +326,8 @@ async def vc_vplay(event):
                     stream_type=StreamType().pulse_stream,
                 )
                 add_to_queue(chat_id, songname, dl, link, "Video", RESOLUSI)
-                caption = get_string("vplay_6").format(songname, link, chat_id, from_user)
+                caption = get_string("vplay_6").format(
+                    songname, link, chat_id, from_user)
                 await xnxx.delete()
                 await event.client.send_file(
                     chat_id, fotoplay, caption=caption, reply_to=event.reply_to_msg_id
@@ -351,7 +358,8 @@ async def vc_vplay(event):
             elif chat_id in QUEUE:
                 pos = add_to_queue(
                     chat_id, songname, ytlink, url, "Video", RESOLUSI)
-                caption = get_string("vplay_8").format(pos, songname, url, duration, from_user)
+                caption = get_string("vplay_8").format(
+                    pos, songname, url, duration, from_user)
                 await xnxx.delete()
                 await event.client.send_file(
                     chat_id, thumb, caption=caption, reply_to=event.reply_to_msg_id
@@ -467,7 +475,7 @@ async def vc_volume(event):
         try:
             await call_py.change_volume_call(chat_id, volume=int(query))
             await eor(event, get_string("volmp_1").format(query)
-            )
+                      )
         except Exception as e:
             await eod(event, get_string("error_1").format(e), time=30)
     else:
@@ -485,7 +493,8 @@ async def vc_playlist(event):
                 link_preview=False,
             )
         else:
-            PLAYLIST = get_string("play_2").format(chat_queue[0][0], chat_queue[0][2], chat_queue[0][3])
+            PLAYLIST = get_string("play_2").format(
+                chat_queue[0][0], chat_queue[0][2], chat_queue[0][3])
             l = len(chat_queue)
             for x in range(1, l):
                 hmm = chat_queue[x][0]

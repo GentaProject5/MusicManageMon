@@ -79,7 +79,7 @@ async def gcast(event):
                 except BaseException:
                     er += 1
     await kk.edit(get_string("gcast_2").format(done, er)
-    )
+                  )
 
 
 @ayiin_cmd(pattern="gucast(?: |$)(.*)")
@@ -108,7 +108,7 @@ async def gucast(event):
                 except BaseException:
                     er += 1
     await kk.edit(get_string("gucast_1").format(done, er)
-    )
+                  )
 
 
 @ayiin_cmd(pattern="blchat$")
@@ -149,7 +149,7 @@ async def add(event):
         .replace("set() ", "")
     )
     await xxnx.edit(get_string("addbl_2").format(gc)
-    )
+                    )
     heroku_Config[var] = blacklistgrup
 
 
@@ -171,12 +171,12 @@ async def _(event):
     if gett in blchat:
         blacklistgrup = blchat.replace(gett, "")
         await xxx.edit(get_string("delbl_1").format(gc)
-        )
+                       )
         var = "BLACKLIST_GCAST"
         heroku_Config[var] = blacklistgrup
     else:
         await eod(xxx, get_string("delbl_2"), time=45
-        )
+                  )
 
 
 CMD_HELP.update(
